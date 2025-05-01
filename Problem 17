@@ -1,0 +1,71 @@
+#problem 17
+
+def last_digit(i):
+    char = 0
+    if i[len(i)-1] == "1" or i[len(i)-1] == "2" or i[len(i)-1] == "6":
+        char += 3
+    elif i[len(i)-1]== "3" or i[len(i)-1] == "7" or i[len(i)-1] == "8":
+        char += 5
+    elif i[len(i)-1] == "4" or i[len(i)-1] == "5" or i[len(i)-1] == "9":
+        char += 4
+    return char
+
+def three_digits(char,i):
+    #first digit for three digits
+    if i[0] == "1" or i[0] == "2" or i[0] == "6":
+        char += 3
+    elif i[0]== "3" or i[0] == "7" or i[0] == "8":
+        char += 5
+    elif i[0] == "4" or i[0] == "5" or i[0] == "9":
+        char += 4
+    return char
+
+def two_digits(char,i):
+    #first digit for two digits like twenty-smth so 2 wud hv 6 characters
+    i = str(i)
+    if i[len(i)-2] == "5" or i[len(i)-2] == "6" or i[len(i)-2] == "4":
+        char += 5
+    elif i[len(i)-2]== "2" or i[len(i)-2] == "3" or i[len(i)-2] == "8" or i[len(i)-2] == "9":
+        char += 6
+    elif i[len(i)-2]== "7":
+        char += 7
+    elif i[len(i)-2]== "1": #for 11,12.....
+        if i[1] == "1" or i[1] == "2":
+            char += 6
+        elif i[1] == "3" or i[1] =="4" or i[1] == "8" or i[1] == "9":
+            char += 8
+        elif i[1] == "5" or i[1] == "6":
+            char += 7
+        else:
+            char += 9 
+    return char
+
+def main():
+    total = 0
+    for i in range(29,32):
+        print(i)
+        if i == 10:
+            char = 3
+        elif i == 100:
+            char = 10
+        elif i == 1000:
+            char = 11
+        else:
+            i = str(i)
+            char = last_digit(i)
+            if len(i) == 3:
+                char = three_digits(char,i)
+                i = int(i)
+                if i % 100 == 0:
+                    char += 7
+                else:
+                    char += 10
+                    char = two_digits(char,i)
+            elif len(i) == 2:
+                char = two_digits(char,i)  
+        total += char 
+        print(char)
+    print(total)
+
+if __name__ == "__main__":
+    main()
