@@ -1,0 +1,48 @@
+#Problem 3
+"""
+factors = []
+i = 2
+while i < 600851475143//2:
+    if 600851475143 % i == 0:
+        factors.append(i)
+    i+= 1
+print(factors)
+
+def primefactor(n):
+    ans = True
+    for i in range(2, n):
+        if n % i == 0:
+            ans = False
+    return ans
+
+for e in factors:
+    ans = primefactor(e)
+    if ans:
+        print(e)
+        
+
+
+"""
+import time
+
+start_time = time.time()
+def primefactors(n):
+    i = 2
+    factors = []
+    while i*i <= n:
+        if n % i == 0:
+            factors.append(i)
+            n //= i
+        else:
+            i += 1
+    if n > 1:
+        factors.append(n)
+    print(factors)
+
+
+num = 600851475143
+primefactors(num)
+
+end_time = time.time()
+total = end_time - start_time
+print(total)
