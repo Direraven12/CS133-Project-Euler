@@ -1,0 +1,22 @@
+#Problem 6 Sum Square DIfference
+import time 
+start = time.time()
+
+num = int(input("Please enter a number: "))
+totalsquaresofsum = 0
+total = 0
+for i in range(num+1):
+    sqaure = i**2
+    print("square: ", str(sqaure))
+    totalsquaresofsum = totalsquaresofsum + sqaure
+print(totalsquaresofsum)
+for y in range(num+1):
+    total = y + total
+totalsumofsquares = total**2
+print(totalsumofsquares)
+difference = totalsumofsquares - totalsquaresofsum
+print(difference)
+    
+    
+end = time.time()
+print(end - start)
