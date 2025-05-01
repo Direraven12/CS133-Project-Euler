@@ -1,0 +1,50 @@
+#Problem 4
+
+import time
+"""
+#v1
+start = time.time()
+
+def palindromic_num(n):
+    ans = True
+    n = str(n)
+    for i in range (3):
+        if n[i] != n[5-i]:
+            ans = False
+    return ans
+
+largest = 0
+for i in range(900,1000):
+    for y in range(900,1000):
+        a = i * y
+        ans = palindromic_num(a)
+        if ans:
+            largest = a
+print(largest)
+
+end = time.time()
+total = end - start
+print(total)
+"""
+
+
+
+def palindromic_num(n):
+    ans = True
+    n = str(n)
+    for i in range(3):
+        if n[i] != n[5-i]:
+            ans = False
+    return ans
+
+
+largest = 0
+for i in range(990,900,-11):
+    for y in range(999,900,-1):
+        a = i * y
+        if palindromic_num(a) and largest < a:
+            largest = a
+        elif largest > a:
+            break
+        
+print(largest)
