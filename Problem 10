@@ -1,0 +1,17 @@
+#Problem 10
+
+##prime numbers have two factoors
+
+def primenums():
+    i = 0
+    primenum = []
+    while i< 2000000:
+        i += 1
+        if i % 2 != 0:
+              
+def main():
+    primenums
+
+
+if __name__ = "__main__":
+    main()
