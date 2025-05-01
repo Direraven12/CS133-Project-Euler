@@ -1,0 +1,20 @@
+#Problem 7
+
+def primes(n):
+    counter = 2
+    for i in range(3,30,2):
+        prime = False
+        for y in range(2,int(i**0.5)+1):
+            if i % y == 0:
+                prime = False
+                break
+            else:
+                prime = True
+        if prime == True:
+            print(i)
+            counter += 1
+            if counter == n:
+                return i
+   
+
+print(primes(100001))
